@@ -194,7 +194,7 @@ static const NSUInteger kExpiryTimeTolerance = 60;
                                OIDTokenRequest *tokenExchangeRequest =
                                    [authorizationResponse tokenExchangeRequestWithAdditionalParameters:additionalTokenParameters
                                     additionalHeaders: additionalTokenHeaders];
-                                    NSLog(@"%@", *tokenExchangeRequest);
+                                    NSLog(@"%@", tokenExchangeRequest);
                                [OIDAuthorizationService performTokenRequest:tokenExchangeRequest
                                               originalAuthorizationResponse:authorizationResponse
                                    callback:^(OIDTokenResponse *_Nullable tokenResponse,

@@ -118,7 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
           [strongSelf->_session resumeExternalUserAgentFlowWithURL:callbackURL];
         } else {
           NSError *safariError =
-              [OIDErrorUtilities errorWithCode:OIDErrorCodeUserCanceledAuthorizationFlow
+              [OIDErrorUtilities errorWithCode:-101
                                underlyingError:error
                                    description:nil];
           [strongSelf->_session failExternalUserAgentFlowWithError:safariError];
@@ -154,7 +154,7 @@ NS_ASSUME_NONNULL_BEGIN
           [strongSelf->_session resumeExternalUserAgentFlowWithURL:callbackURL];
         } else {
           NSError *safariError =
-              [OIDErrorUtilities errorWithCode:OIDErrorCodeUserCanceledAuthorizationFlow
+              [OIDErrorUtilities errorWithCode:-102
                                underlyingError:error
                                    description:@"User cancelled."];
           [strongSelf->_session failExternalUserAgentFlowWithError:safariError];
@@ -245,7 +245,7 @@ NS_ASSUME_NONNULL_BEGIN
   }
   id<OIDExternalUserAgentSession> session = _session;
   [self cleanUp];
-  NSError *error = [OIDErrorUtilities errorWithCode:OIDErrorCodeUserCanceledAuthorizationFlow
+  NSError *error = [OIDErrorUtilities errorWithCode:-103
                                     underlyingError:nil
                                         description:@"No external user agent flow in progress."];
   [session failExternalUserAgentFlowWithError:error];

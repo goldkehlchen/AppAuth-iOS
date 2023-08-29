@@ -431,6 +431,12 @@ NS_ASSUME_NONNULL_BEGIN
                          callback:(OIDTokenCallback)callback {
 
   NSURLRequest *URLRequest = [request URLRequest];
+
+  NSLog(@"Token Request: %@\nHeaders:%@\nHTTPBody: %@",
+                      URLRequest.URL,
+                      URLRequest.allHTTPHeaderFields,
+                      [[NSString alloc] initWithData:URLRequest.HTTPBody
+                                            encoding:NSUTF8StringEncoding]);
   
   AppAuthRequestTrace(@"Token Request: %@\nHeaders:%@\nHTTPBody: %@",
                       URLRequest.URL,

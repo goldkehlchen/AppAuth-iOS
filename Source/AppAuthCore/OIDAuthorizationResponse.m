@@ -188,9 +188,9 @@ static NSString *const kTokenExchangeRequestException =
 }
 
 - (OIDTokenRequest *)tokenExchangeRequestWithAdditionalParameters:
-    (NSDictionary<NSString *, NSString *> *)additionalParameters
+    (nullable NSDictionary<NSString *, NSString *> *)additionalParameters
                                                 additionalHeaders:
-    (NSDictionary<NSString *, NSString *> *)additionalHeaders {
+    (nullable NSDictionary<NSString *, NSString *> *)additionalHeaders {
   // TODO: add a unit test to confirm exception is thrown when expected and the request is created
   //       with the correct parameters.
   if (!_authorizationCode) {

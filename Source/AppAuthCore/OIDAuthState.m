@@ -174,8 +174,8 @@ static const NSUInteger kExpiryTimeTolerance = 60;
 + (id<OIDExternalUserAgentSession>)
     authStateByPresentingAuthorizationRequest:(OIDAuthorizationRequest *)authorizationRequest
                             externalUserAgent:(id<OIDExternalUserAgent>)externalUserAgent
-                                     additionalTokenParameters: (NSDictionary<NSString *, NSString *> *)additionalTokenParameters
-                                     additionalTokenHeaders: (NSDictionary<NSString *, NSString *> *)additionalTokenHeaders
+                                      additionalTokenParameters:(nullable NSDictionary<NSString *, NSString *> *)additionalTokenParameters
+                                      additionalTokenHeaders:(nullable NSDictionary<NSString *, NSString *> *)additionalTokenHeaders
                                      callback:(OIDAuthStateAuthorizationCallback)callback {
   // presents the authorization request
   id<OIDExternalUserAgentSession> authFlowSession = [OIDAuthorizationService
@@ -194,6 +194,7 @@ static const NSUInteger kExpiryTimeTolerance = 60;
                                OIDTokenRequest *tokenExchangeRequest =
                                    [authorizationResponse tokenExchangeRequestWithAdditionalParameters:additionalTokenParameters
                                     additionalHeaders: additionalTokenHeaders];
+                                    NSLog(@"%@", additionalTokenHeaders);
                                     NSLog(@"%@", tokenExchangeRequest);
                                [OIDAuthorizationService performTokenRequest:tokenExchangeRequest
                                               originalAuthorizationResponse:authorizationResponse

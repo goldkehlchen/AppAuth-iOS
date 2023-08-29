@@ -174,9 +174,9 @@ static const NSUInteger kExpiryTimeTolerance = 60;
 + (id<OIDExternalUserAgentSession>)
     authStateByPresentingAuthorizationRequest:(OIDAuthorizationRequest *)authorizationRequest
                             externalUserAgent:(id<OIDExternalUserAgent>)externalUserAgent
-                                     callback:(OIDAuthStateAuthorizationCallback)callback
-                                     additionalParameters: (NSDictionary<NSString *, NSString *> *)additionalParameters
-                                     additionalHeaders: (NSDictionary<NSString *, NSString *> *)additionalHeaders {
+                                     additionalTokenParameters: (NSDictionary<NSString *, NSString *> *)additionalTokenParameters
+                                     additionalTokenHeaders: (NSDictionary<NSString *, NSString *> *)additionalTokenHeaders
+                                     callback:(OIDAuthStateAuthorizationCallback)callback {
   // presents the authorization request
   id<OIDExternalUserAgentSession> authFlowSession = [OIDAuthorizationService
       presentAuthorizationRequest:authorizationRequest
@@ -192,8 +192,8 @@ static const NSUInteger kExpiryTimeTolerance = 60;
                                // code is intended for this client, and performs the authorization
                                // code exchange
                                OIDTokenRequest *tokenExchangeRequest =
-                                   [authorizationResponse tokenExchangeRequestWithAdditionalParameters:additionalParameters
-                                    additionalHeaders: additionalHeaders];
+                                   [authorizationResponse tokenExchangeRequestWithAdditionalParameters:additionalTokenParameters
+                                    additionalHeaders: additionalTokenHeaders];
                                [OIDAuthorizationService performTokenRequest:tokenExchangeRequest
                                               originalAuthorizationResponse:authorizationResponse
                                    callback:^(OIDTokenResponse *_Nullable tokenResponse,

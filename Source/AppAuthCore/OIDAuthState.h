@@ -141,7 +141,7 @@ static NSString *const kRefreshTokenRequestException =
                                      callback:(OIDAuthStateAuthorizationCallback)callback;
 
 + (id<OIDExternalUserAgentSession>)
-    authStateByPresentingAuthorizationRequestWithAdditionalTokenParameters:(OIDAuthorizationRequest *)authorizationRequest
+    authStateByPresentingAuthorizationRequest:(OIDAuthorizationRequest *)authorizationRequest
                             externalUserAgent:(id<OIDExternalUserAgent>)externalUserAgent
                                      callback:(OIDAuthStateAuthorizationCallback)callback
                                      additionalParameters: (NSDictionary<NSString *, NSString *> *)additionalParameters

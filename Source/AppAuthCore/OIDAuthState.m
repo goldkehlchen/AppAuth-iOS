@@ -172,7 +172,7 @@ static const NSUInteger kExpiryTimeTolerance = 60;
 }
 
 + (id<OIDExternalUserAgentSession>)
-    authStateByPresentingAuthorizationRequestWithAdditionalTokenParameters:(OIDAuthorizationRequest *)authorizationRequest
+    authStateByPresentingAuthorizationRequest:(OIDAuthorizationRequest *)authorizationRequest
                             externalUserAgent:(id<OIDExternalUserAgent>)externalUserAgent
                                      callback:(OIDAuthStateAuthorizationCallback)callback
                                      additionalParameters: (NSDictionary<NSString *, NSString *> *)additionalParameters

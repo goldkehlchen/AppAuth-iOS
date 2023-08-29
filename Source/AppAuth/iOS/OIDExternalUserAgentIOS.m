@@ -121,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
               [OIDErrorUtilities errorWithCode:-101
                                underlyingError:error
                                    description:nil];
-          [strongSelf->_session failExternalUserAgentFlowWithError:safariError];
+          [strongSelf->_session failExternalUserAgentFlowWithError:error];
         }
       }];
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000

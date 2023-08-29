@@ -238,7 +238,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)cancelWithCompletion:(nullable void (^)(void))completion {
   [_externalUserAgent dismissExternalUserAgentAnimated:YES completion:^{
     NSError *error = [OIDErrorUtilities
-                      errorWithCode:OIDErrorCodeUserCanceledAuthorizationFlow
+                      errorWithCode:OIDErrorCodeProgramCanceledAuthorizationFlow
                       underlyingError:nil
                       description:nil];
     [self didFinishWithResponse:nil error:error];
